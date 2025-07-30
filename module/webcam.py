@@ -1,5 +1,5 @@
 '''
-WEBカメラをオープンし表示
+WEBカメラに関するモジュール
 '''
 #__all__ = ['try_to_open_camera', 'show_camera_stream']
 import os
@@ -25,7 +25,11 @@ def try_to_open_camera(camera_id:int) -> bool:
 
 def show_camera_stream(cam_id:int):
     '''
-    カメラID：cam_idを表示
+    webカメラから取得した画像を表示
+    Args:
+        cam_id: カメラのID
+    Returns:
+        None
 
     'q'で終了
     '''

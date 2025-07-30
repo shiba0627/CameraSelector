@@ -1,4 +1,4 @@
-import webcam
+import module.webcam as webcam
 
 def main():
     consecutive_failures = 0#失敗カウント用

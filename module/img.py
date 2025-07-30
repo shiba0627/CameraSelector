@@ -14,7 +14,7 @@ def compress_image(input_path, output_path, quality=85):
         None
     '''
     try:
-        img = Image.open(input_path)
+        img = Image.open(input_path)#ほとんどの画像ファイル形式をロード可能
         print(f'Image loaded successfully:{input_path}')
         img.save(output_path, optimize=True, quality=quality)
         print(f'quality:{quality}, Image saved successfully:{output_path}')

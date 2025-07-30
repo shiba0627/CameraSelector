@@ -45,6 +45,27 @@ def show_camera_stream(cam_id:int):
     cap.release()
     cv2.destroyAllWindows()
 
+def detect_available_cameras(max_consecutive_failures = 3) -> list[int]:
+    '''
+    使用可能なカメラのIDを検出
+    
+    Args:
+        max_consecutive_failures: 探索終了条件：連続で失敗した回数
+    Returns:
+        list[int]: 使用可能なカメラのIDリスト
+    '''
+    consecutive_failures = 0#失敗カウント用
+    result_list = []
+    for i in range(999):
+        if try_to_open_camera(i):
+            result_list.append(i)
+            consecutive_failures = 0
+        else:
+            consecutive_failures += 1
+        if consecutive_failures >= max_consecutive_failures:
+            break
+    return result_list
+
 def main():
     pass
 
